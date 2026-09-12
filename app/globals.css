@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   CHEZ ZONGO — DESIGN SYSTEM
+   ============================================
+   🎨 TO REBRAND: Change values below only.
+   All components reference these variables.
+   ============================================ */
+
+:root {
+  /* Core palette */
+  --background: #0A0A0A;
+  --foreground: #FFFFFF;
+
+  /* Brand colors — change these to rebrand */
+  --primary: #FF5500;
+  --primary-light: #FF7733;
+
+  /* Accent — used for badges, highlights */
+  --accent: #FFC200;
+
+  /* Surfaces */
+  --card: #141414;
+  --card-hover: #1C1C1C;
+
+  /* Borders */
+  --border: #252525;
+
+  /* Text */
+  --muted: #404040;
+  --muted-foreground: #888888;
+}
+
+/* Base */
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Safe area for modern phones */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Scrollbar — hide for category nav */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Category nav pill active state */
+.category-pill {
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.category-pill.active {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+/* Menu card image shimmer placeholder */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--card) 25%,
+    var(--card-hover) 50%,
+    var(--card) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Badge variants */
+.badge-bestseller {
+  background: var(--primary);
+  color: #fff;
+}
+.badge-new {
+  background: var(--accent);
+  color: #000;
+}
+.badge-populaire {
+  background: #7C3AED;
+  color: #fff;
+}
+
+/* Bottom sheet overlay */
+.overlay {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Custom focus ring */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Prevent body scroll when modal/drawer open */
+.no-scroll {
+  overflow: hidden;
+}
+
+/* Image fade in */
+.img-fade-in {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Tap feedback for mobile */
+@media (hover: none) {
+  .tap-scale:active {
+    transform: scale(0.97);
+  }
+}
+
+/* Button primary */
+.btn-primary {
+  background-color: var(--primary);
+  color: #fff;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-light);
+  box-shadow: 0 0 20px rgba(255, 85, 0, 0.35);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* WhatsApp button */
+.btn-whatsapp {
+  background-color: #25D366;
+  color: #fff;
+  font-weight: 700;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebe5d;
+}
+
+.btn-whatsapp:active {
+  transform: scale(0.98);
+}
