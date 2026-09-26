@@ -17,7 +17,7 @@ export const CONFIG = {
   // ⚠️ WHATSAPP NUMBER
   // Format: country code + number WITHOUT leading zero
   // Algeria = 213. Example: 0550123456 → "213550123456"
-  whatsappNumber: "213550000000",
+  whatsappNumber: "213563408236",
 
   // Opening hours
   hours: {
@@ -44,7 +44,7 @@ export const CONFIG = {
     title: "Chez Zongo — Street Food à Oran",
     description:
       "Menu digital de Chez Zongo à Oran. Découvrez nos burgers, tacos, sandwichs, menus, desserts et boissons.",
-    url: "https://chezzongo.dz",
+    url: "https://chezzongo.vercel.app",
     ogImage: "/og-image.jpg",
   },
 } as const;

@@ -1,35 +1,9 @@
 // ============================================================
-// CHEZ ZONGO — MENU DATA
+// CHEZ ZONGO — ACTUAL MENU DATA
 // ============================================================
-// HOW TO UPDATE THE MENU:
-//
-// ✅ ADD A PRICE: Find the product by `id` and set `price: 950`
-//    (number in DZD, no quotes). Remove the line entirely
-//    to hide the price from customers.
-//
-// ✅ ADD INGREDIENTS: Set `ingredients: ["Steak", "Cheddar"]`
-//    Customers will see them listed under the product name.
-//
-// ✅ ADD A PRODUCT: Copy any item block, give it a unique `id`,
-//    set its `category` to an existing category slug, and add
-//    it to the MENU_ITEMS array.
-//
-// ✅ DELETE A PRODUCT: Remove its object from MENU_ITEMS.
-//
-// ✅ ADD AN IMAGE: Put the image in /public/images/ and set
-//    `image: "/images/your-file.jpg"`.
-//
-// ✅ ADD A BADGE: Set `badge` to "BEST SELLER", "NEW", or "POPULAIRE".
-//    Leave it out (or undefined) for no badge.
-//
-// ✅ HIDE A PRODUCT temporarily: Add `available: false`
-//
-// ✅ ADD/EDIT CATEGORY: Edit the CATEGORIES array below.
-//    The `label` is the full section heading displayed on the page.
-//    The `navLabel` is the short label shown in the sticky nav bar.
+// Prices are in DZD (DA).
+// XL pizza price = exactly 2 × regular price.
 // ============================================================
-
-// ── Types ─────────────────────────────────────────────────────
 
 export type BadgeType = "BEST SELLER" | "NEW" | "POPULAIRE";
 
@@ -55,11 +29,8 @@ export type Extra = {
 export type MenuItem = {
   id: string;
   name: string;
-  // ⚠️ price is OPTIONAL — omit it entirely until confirmed by owner
   price?: number;
-  // ⚠️ ingredients are OPTIONAL — omit if not confirmed
   ingredients?: string[];
-  // description is for internal notes, not customer-facing
   description?: string;
   category: string;
   image?: string;
@@ -72,15 +43,9 @@ export type MenuItem = {
 export type Category = {
   id: string;
   slug: string;
-  // Full name shown as section heading on the page
   label: string;
-  // Short name shown in the sticky category nav bar
   navLabel: string;
 };
-
-// ── Categories ────────────────────────────────────────────────
-// Order here = display order on the page and in the nav.
-// Categories with zero products are automatically hidden.
 
 export const CATEGORIES: Category[] = [
   {
@@ -96,16 +61,28 @@ export const CATEGORIES: Category[] = [
     navLabel: "Viande Hachée",
   },
   {
+    id: "cat-tacos",
+    slug: "tacos",
+    label: "Tacos",
+    navLabel: "Tacos",
+  },
+  {
     id: "cat-burgers",
     slug: "hamburgers",
     label: "Hamburgers",
     navLabel: "Burgers",
   },
   {
-    id: "cat-tacos",
-    slug: "tacos",
-    label: "Tacos",
-    navLabel: "Tacos",
+    id: "cat-poutine",
+    slug: "poutine",
+    label: "Poutine",
+    navLabel: "Poutine",
+  },
+  {
+    id: "cat-crousty",
+    slug: "crousty",
+    label: "Crousty",
+    navLabel: "Crousty",
   },
   {
     id: "cat-pizza-rouge",
@@ -126,248 +103,454 @@ export const CATEGORIES: Category[] = [
     navLabel: "Salades",
   },
   {
-    id: "cat-sauces",
-    slug: "sauces",
-    label: "Sauces",
-    navLabel: "Sauces",
-  },
-  {
     id: "cat-supplements",
     slug: "supplements",
     label: "Suppléments",
     navLabel: "Suppléments",
   },
-  {
-    id: "cat-crousty",
-    slug: "crousty",
-    label: "Crousty",
-    navLabel: "Crousty",
-  },
-  {
-    id: "cat-poutine",
-    slug: "poutine",
-    label: "Poutine",
-    navLabel: "Poutine",
-  },
 ];
 
-// ── Menu Items ─────────────────────────────────────────────────
-// Rules:
-//   • Never invent a price — omit `price` until owner confirms it
-//   • Never invent ingredients — omit `ingredients` if not confirmed
-//   • Use proper French typography: É è ê œ accents apostrophes
-
 export const MENU_ITEMS: MenuItem[] = [
-
-  // ═══════════════════════════════════════════════════
+  // ============================================================
   // SANDWICHS ESCALOPE
-  // ═══════════════════════════════════════════════════
-
+  // ============================================================
   {
     id: "esc-emmental",
     name: "Emmental",
+    price: 550,
     ingredients: ["Sauce fromagère", "Escalope", "Cheddar"],
     category: "sandwichs-escalope",
-
-    // price: undefined — à renseigner par le responsable
+    image:"/images/emmental.jpg"
   },
   {
     id: "esc-boursin",
     name: "Boursin Escalope",
+    price: 500,
     ingredients: ["Sauce Boursin", "Escalope", "Cheddar"],
     category: "sandwichs-escalope",
-    price:600
+    image:"/images/boursin-escalope.jpg"
   },
   {
     id: "esc-curry",
     name: "Curry",
+    price: 500,
     ingredients: ["Escalope épicée", "Cheddar"],
     category: "sandwichs-escalope",
+    image:"/images/curry.jpg"
   },
   {
     id: "esc-tandoori",
     name: "Tandoori",
+    price: 500,
     ingredients: ["Escalope épicée", "Cheddar"],
     category: "sandwichs-escalope",
+    image:"/images/tandori.jpg"
   },
   {
     id: "esc-fusion",
     name: "Fusion",
+    price: 600,
     ingredients: ["Curry", "Tandoori", "Cheddar"],
     category: "sandwichs-escalope",
+    image:"/images/fusion.jpg"
   },
 
-  // ═══════════════════════════════════════════════════
+  // ============================================================
   // SANDWICHS VIANDE HACHÉE
-  // ═══════════════════════════════════════════════════
-
+  // ============================================================
   {
     id: "vh-traditionnel",
     name: "Traditionnel",
+    price: 400,
     ingredients: ["2 steaks", "1 œuf", "Cheddar"],
     category: "sandwichs-vh",
+    image:"/images/traditionnel.jpg"
   },
   {
     id: "vh-3x",
     name: "3X",
+    price: 500,
     ingredients: ["3 steaks", "Jambon de dinde", "Cheddar"],
     category: "sandwichs-vh",
+    image:"/images/3x.jpg"
   },
   {
     id: "vh-boursin",
     name: "Boursin VH",
+    price: 500,
     ingredients: ["3 steaks", "Sauce Boursin", "Cheddar"],
     category: "sandwichs-vh",
+    image:"/images/boursin-vh.jpg"
   },
   {
     id: "vh-buffalo",
     name: "Buffalo",
+    price: 500,
     ingredients: ["2 steaks", "Cheddar", "Escalope", "Jambon de dinde"],
     category: "sandwichs-vh",
+    image:"/images/buffalo.jpg"
   },
   {
     id: "vh-5x",
     name: "5X",
+    price: 700,
     ingredients: ["5 steaks", "Jambon de dinde", "Cheddar"],
     category: "sandwichs-vh",
+    image:"/images/5x.jpg"
   },
 
-  // ═══════════════════════════════════════════════════
-  // HAMBURGERS
-  // ═══════════════════════════════════════════════════
+  // ============================================================
+  // TACOS
+  // ============================================================
+  {
+    id: "tacos-poulet",
+    name: "Poulet",
+    price: 500,
+    ingredients: ["Escalope", "Sauce gruyère", "Frites"],
+    category: "tacos",
+    image:"/images/tacos-poulet.jpg"
+  },
+  {
+    id: "tacos-vh",
+    name: "Viande Hachée",
+    price: 500,
+    ingredients: ["Viande hachée", "Sauce gruyère", "Frites"],
+    category: "tacos",
+    image:"/images/tacos-vh.jpg"
+  },
+  {
+    id: "tacos-mixte",
+    name: "Mixte",
+    price: 600,
+    ingredients: ["Viande hachée", "Poulet", "Sauce gruyère", "Frites"],
+    category: "tacos",
+    image:"/images/tacos-mixte.jpg"
+  },
+  {
+    id: "tacos-crispy",
+    name: "Crispy",
+    price: 600,
+    ingredients: ["Poulet pané", "Sauce gruyère", "Frites"],
+    category: "tacos",
+    image:"/images/tacos-crispy.jpg"
+  },
+  {
+    id: "tacos-cordon-bleu",
+    name: "Cordon Bleu",
+    price: 600,
+    ingredients: ["Cordon bleu", "Sauce gruyère", "Frites"],
+    category: "tacos",
+    image:"/images/tacos-cordon.jpg"
+  },
 
+  // ============================================================
+  // HAMBURGERS
+  // Cheese Crispy and Double Cheese were removed from the menu.
+  // ============================================================
   {
     id: "burger-cheese",
     name: "Cheese Burger",
+    price: 250,
     ingredients: ["1 steak", "Cheddar"],
     category: "hamburgers",
-    image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=999&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: "burger-crispy",
-    name: "Cheese Crispy",
-    ingredients: ["Poulet crispy", "Cheddar"],
-    category: "hamburgers",
-    image:"https://images.unsplash.com/photo-1692737349870-e3bfc704ebf9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    image:"/images/burger-cheese.jpg"
   },
   {
     id: "burger-big-cheese",
     name: "Big Cheese",
+    price: 450,
     ingredients: [
       "1 steak",
-      "Champignons",
+      "Champignon",
       "Oignon",
       "1 œuf",
       "Camembert",
       "Cheddar",
     ],
     category: "hamburgers",
-    image:"https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    image:"/images/burger-big-chesse.jpg"
+  },
+  {
+    id: "burger-crispy",
+    name: "Crispy Hamburger",
+    price: 500,
+    ingredients: ["Salade", "Tomate", "Poulet pané", "Sauce Biggy", "Cheddar"],
+    category: "hamburgers",
+    image:"/images/burger-crispy.jpg"
   },
 
-  // ═══════════════════════════════════════════════════
-  // TACOS
-  // ═══════════════════════════════════════════════════
-
+  // ============================================================
+  // POUTINE
+  // Updated: remove sauce brune, sauce blanche and persil;
+  // add sauce gruyère to every poutine.
+  // ============================================================
   {
-    id: "tacos-poulet",
-    name: "Poulet",
-    ingredients: ["Escalope", "Sauce gruyère", "Frites"],
-    category: "tacos",
-    image:"https://images.unsplash.com/photo-1621334953222-c60c19143b0a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    id: "poutine-mixc",
+    name: "Poutine Mixc",
+    price: 650,
+    ingredients: ["Frites", "Fromage en grains", "Poulet crousty", "Viande hachée", "Sauce gruyère"],
+    category: "poutine",
   },
   {
-    id: "tacos-vh",
-    name: "Viande Hachée",
-    ingredients: ["Viande hachée", "Sauce gruyère", "Frites"],
-    category: "tacos",
-    image:"https://images.unsplash.com/photo-1719282431723-9d0f4370d4bc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    id: "poutine-vh",
+    name: "Poutine VH",
+    price: 600,
+    ingredients: ["Frites", "Fromage en grains", "Viande hachée", "Sauce gruyère"],
+    category: "poutine",
   },
   {
-    id: "tacos-mixte",
-    name: "Mixte",
-    ingredients: ["Viande hachée", "Poulet", "Sauce gruyère", "Frites"],
-    category: "tacos",
-    image:"https://images.unsplash.com/photo-1593253814586-6a8d3df59494?q=80&w=1214&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  },
-  {
-    id: "tacos-crispy",
-    name: "Crispy",
-    ingredients: ["Poulet pané", "Sauce gruyère", "Frites"],
-    category: "tacos",
-    image:"https://images.unsplash.com/photo-1773620494884-940e0db95e46?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGNyaXNweSUyMGZyZW5jaCUyMHRhY29zfGVufDB8fDB8fHww"
-  },
-  {
-    id: "tacos-cordon-bleu",
-    name: "Cordon Bleu",
-    // ingredients: NOT PROVIDED — à renseigner par le responsable
-    category: "tacos",
+    id: "poutine-crispy",
+    name: "Poutine Crispy",
+    price: 600,
+    ingredients: ["Frites", "Fromage en grains", "Poulet crousty", "Sauce gruyère"],
+    category: "poutine",
   },
 
-  // ═══════════════════════════════════════════════════
+  // ============================================================
+  // CROUSTY
+  // ============================================================
+  {
+    id: "crousty-spicy",
+    name: "Crousty Spicy",
+    price: 600,
+    ingredients: [
+      "Riz blanc",
+      "Sauce blanche",
+      "Poulet crousty",
+      "Sauce piquante",
+      "Oignons",
+      "Frites",
+      "Persil",
+    ],
+    category: "crousty",
+  },
+  {
+    id: "crousty-spicy-2",
+    name: "2 Crousty Spicy",
+    price: 650,
+    ingredients: [
+      "Riz blanc",
+      "Sauce blanche",
+      "Poulet crousty",
+      "Sauce sucrée",
+      "Oignons",
+      "Frites",
+      "Persil",
+    ],
+    category: "crousty",
+  },
+
+  // ============================================================
   // PIZZAS — SAUCE ROUGE
-  // All ingredients NOT PROVIDED — à renseigner par le responsable
-  // ═══════════════════════════════════════════════════
+  // XL = exactly double the regular price.
+  // ============================================================
+  {
+    id: "pizza-r-marguerite",
+    name: "Marguerite",
+    price: 400,
+    ingredients: ["Sauce", "Double fromage", "Olives"],
+    category: "pizza-rouge",
+    image:"/images/pizza-marguerite.jpg",
+    options: [{ id: "pizza-size", label: "Taille", required: true, choices: [{ id: "standard", label: "Standard", priceAdd: 0 }, { id: "xl", label: "XL", priceAdd: 400 }] }],
+  },
+  {
+    id: "pizza-r-vegetarienne",
+    name: "Végétarienne",
+    price: 450,
+    ingredients: ["Sauce", "Double fromage", "Oignon", "Poivron", "Tomate", "Champignon", "Maïs", "Olive"],
+    category: "pizza-rouge",
+    image:"/images/pizza-veg.jpg",
+    options: [{ id: "pizza-size", label: "Taille", required: true, choices: [{ id: "standard", label: "Standard", priceAdd: 0 }, { id: "xl", label: "XL", priceAdd: 450 }] }],
+  },
+  {
+    id: "pizza-r-neptune",
+    name: "Neptune",
+    price: 550,
+    ingredients: ["Sauce", "Double fromage", "Thon", "Olive"],
+    category: "pizza-rouge",
+    image:"/images/pizza-neptune.jpg",
+    options: [{ id: "pizza-size", label: "Taille", required: true, choices: [{ id: "standard", label: "Standard", priceAdd: 0 }, { id: "xl", label: "XL", priceAdd: 550 }] }],
+  },
+  {
+    id: "pizza-r-chicken",
+    name: "Chicken",
+    price: 600,
+    ingredients: ["Sauce", "Double fromage", "Poulet"],
+    category: "pizza-rouge",
+    image:"/images/pizza-chicken.jpg",
+    options: [{ id: "pizza-size", label: "Taille", required: true, choices: [{ id: "standard", label: "Standard", priceAdd: 0 }, { id: "xl", label: "XL", priceAdd: 600 }] }],
+  },
+  {
+    id: "pizza-r-vh",
+    name: "Viande Hachée",
+    price: 600,
+    ingredients: ["Sauce", "Double fromage", "Viande hachée", "Olive"],
+    category: "pizza-rouge",
+    image:"/images/pizza-vh.jpg",
+    options: [{ id: "pizza-size", label: "Taille", required: true, choices: [{ id: "standard", label: "Standard", priceAdd: 0 }, { id: "xl", label: "XL", priceAdd: 600 }] }],
+  },
+  {
+    id: "pizza-r-peperooni",
+    name: "Peperooni",
+    price: 600,
+    ingredients: ["Sauce barbecue", "Double fromage", "Peperoni"],
+    category: "pizza-rouge",
+    image:"/images/pizza-pep.jpg",
+    options: [{ id: "pizza-size", label: "Taille", required: true, choices: [{ id: "standard", label: "Standard", priceAdd: 0 }, { id: "xl", label: "XL", priceAdd: 600 }] }],
+  },
+  {
+    id: "pizza-r-reine",
+    name: "Reine",
+    price: 650,
+    ingredients: ["Sauce", "Double fromage", "Champignon", "Jambon de dinde"],
+    category: "pizza-rouge",
+    image:"/images/pizza-reine.jpg",
+    options: [{ id: "pizza-size", label: "Taille", required: true, choices: [{ id: "standard", label: "Standard", priceAdd: 0 }, { id: "xl", label: "XL", priceAdd: 650 }] }],
+  },
+  {
+    id: "pizza-r-mexicaine",
+    name: "Mexicaine",
+    price: 650,
+    ingredients: ["Sauce", "Double fromage", "Poulet / viande hachée", "Chili thaï", "Poivron"],
+    category: "pizza-rouge",
+    image:"/images/pizza-mex.jpg",
+    options: [{ id: "pizza-size", label: "Taille", required: true, choices: [{ id: "standard", label: "Standard", priceAdd: 0 }, { id: "xl", label: "XL", priceAdd: 650 }] }],
+  },
+  {
+    id: "pizza-r-meat",
+    name: "MEAT",
+    price: 700,
+    ingredients: ["Sauce", "Double fromage", "Viande hachée", "Jambon de dinde", "Poivron", "Olive"],
+    category: "pizza-rouge",
+    image:"/images/pizza-meat.jpg",
+    options: [{ id: "pizza-size", label: "Taille", required: true, choices: [{ id: "standard", label: "Standard", priceAdd: 0 }, { id: "xl", label: "XL", priceAdd: 700 }] }],
+  },
+  {
+    id: "pizza-r-fruit-de-mer",
+    name: "Fruit de Mer",
+    price: 900,
+    category: "pizza-rouge",
+    image:"/images/pizza-fm.jpg",
+    options: [{ id: "pizza-size", label: "Taille", required: true, choices: [{ id: "standard", label: "Standard", priceAdd: 0 }, { id: "xl", label: "XL", priceAdd: 900 }] }],
+  },
+  {
+    id: "pizza-r-orientale",
+    name: "Orientale",
+    price: 700,
+    ingredients: ["Sauce rouge", "Double fromage", "Champignon", "Merguez", "Œuf"],
+    category: "pizza-rouge",
+    image:"/images/pizza-orientale.jpg",
+    options: [{ id: "pizza-size", label: "Taille", required: true, choices: [{ id: "standard", label: "Standard", priceAdd: 0 }, { id: "xl", label: "XL", priceAdd: 700 }] }],
+  },
+  {
+    id: "pizza-r-geante-2",
+    name: "Pizza Géante — 2 choix",
+    price: 1800,
+    category: "pizza-rouge",
+    image:"/images/pizza-2-choix.jpg",
+  },
+  {
+    id: "pizza-r-geante-4",
+    name: "Pizza Géante — 4 choix",
+    price: 2200,
+    category: "pizza-rouge",
+    image:"/images/pizza-4-choix.jpg",
+  },
 
-  { id: "pizza-r-margherita",   name: "Margherita",    category: "pizza-rouge", image:"https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-  { id: "pizza-r-vegetarienne", name: "Végétarienne",  category: "pizza-rouge" ,image:"https://images.unsplash.com/photo-1552539618-7eec9b4d1796?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGl6emElMjB2ZWdldGFyaWVubmV8ZW58MHx8MHx8fDA%3D"},
-  { id: "pizza-r-neptune",      name: "Neptune",        category: "pizza-rouge" },
-  { id: "pizza-r-chicken",      name: "Chicken",        category: "pizza-rouge" , image:"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emElMjBjaGlja2VufGVufDB8fDB8fHww"},
-  { id: "pizza-r-vh",           name: "Viande Hachée",  category: "pizza-rouge" ,image:"https://images.unsplash.com/photo-1672856399643-47ddf6b2d6d6?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cGl6emElMjB2aWFuZGUlMjBoYWNoJUMzJUE5fGVufDB8fDB8fHww"},
-  { id: "pizza-r-pepperoni",    name: "Pepperoni",      category: "pizza-rouge" , image:"https://plus.unsplash.com/premium_photo-1733259709671-9dbf22bf02cc?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGl6emElMjBwZXBwZXJvbml8ZW58MHx8MHx8fDA%3D"},
-  { id: "pizza-r-reine",        name: "Reine",          category: "pizza-rouge" },
-  { id: "pizza-r-mexicaine",    name: "Mexicaine",      category: "pizza-rouge",image:"https://images.unsplash.com/photo-1593246049226-ded77bf90326?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGl6emElMjBtZXhpY2FpbmV8ZW58MHx8MHx8fDA%3D" },
-  { id: "pizza-r-fruits-mer",   name: "Fruits de Mer",  category: "pizza-rouge", image:"https://images.unsplash.com/photo-1724041305935-6240f9fb972f?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHBpenphJTIwc2VhJTIwZm9vZHxlbnwwfHwwfHx8MA%3D%3D"},
-  { id: "pizza-r-maison",       name: "Maison",         category: "pizza-rouge",image:"https://plus.unsplash.com/premium_photo-1673439304183-8840bd0dc1bf?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGl6emElMjBtYWlzb258ZW58MHx8MHx8fDA%3D" },
-  { id: "pizza-r-meat",         name: "MEAT",           category: "pizza-rouge" ,image:"https://images.unsplash.com/photo-1722707757608-7da361644637?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fHBpenphJTIwbWVhdHxlbnwwfHwwfHx8MA%3D%3D"},
-
-  // ═══════════════════════════════════════════════════
+  // ============================================================
   // PIZZAS — SAUCE BLANCHE
-  // All ingredients NOT PROVIDED — à renseigner par le responsable
-  // ═══════════════════════════════════════════════════
+  // XL = exactly double the regular price.
+  // ============================================================
+  {
+    id: "pizza-b-4fromages",
+    name: "4 Fromages",
+    price: 750,
+    ingredients: ["Sauce gruyère", "Camembert", "Gruyère", "Cheddar", "Mozzarella"],
+    category: "pizza-blanche",
+    options: [{ id: "pizza-size", label: "Taille", required: true, choices: [{ id: "standard", label: "Standard", priceAdd: 0 }, { id: "xl", label: "XL", priceAdd: 750 }] }],
+    image:"/images/pizza-4-fromages.jpg",
+  },
+  {
+    id: "pizza-b-fermiere",
+    name: "Fermière",
+    price: 700,
+    ingredients: ["Sauce gruyère", "Double fromage", "Poulet"],
+    category: "pizza-blanche",
+    image:"/images/pizza-fermiere.jpg",
+    options: [{ id: "pizza-size", label: "Taille", required: true, choices: [{ id: "standard", label: "Standard", priceAdd: 0 }, { id: "xl", label: "XL", priceAdd: 700 }] }],
+  },
+  {
+    id: "pizza-b-costa-cosa",
+    name: "Costa Cosa",
+    price: 700,
+    ingredients: ["Sauce gruyère", "Double fromage", "Poulet", "Jambon de dinde"],
+    category: "pizza-blanche",
+    image:"/images/pizza-costa-cosa.jpg",
+    options: [{ id: "pizza-size", label: "Taille", required: true, choices: [{ id: "standard", label: "Standard", priceAdd: 0 }, { id: "xl", label: "XL", priceAdd: 700 }] }],
+  },
+  {
+    id: "pizza-b-fumee",
+    name: "Fumée",
+    price: 750,
+    ingredients: ["Sauce gruyère", "Double fromage", "Jambon de dinde", "Fromage fumé"],
+    category: "pizza-blanche",
+    image:"/images/pizza-fumee.jpg",
+    options: [{ id: "pizza-size", label: "Taille", required: true, choices: [{ id: "standard", label: "Standard", priceAdd: 0 }, { id: "xl", label: "XL", priceAdd: 750 }] }],
+  },
+  {
+    id: "pizza-b-maison",
+    name: "Maison",
+    price: 1000,
+    ingredients: ["Sauce blanche", "Double fromage", "Poulet", "Viande hachée", "Merguez", "Oignon", "Gruyère"],
+    category: "pizza-blanche",
+    image:"/images/pizza-maison.jpg",
+    options: [{ id: "pizza-size", label: "Taille", required: true, choices: [{ id: "standard", label: "Standard", priceAdd: 0 }, { id: "xl", label: "XL", priceAdd: 1000 }] }],
+  },
 
-  { id: "pizza-b-4fromages",  name: "4 Fromages",  category: "pizza-blanche",image:"https://images.unsplash.com/photo-1712652080841-9e480a2c43ec?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emElMjA0JTIwZnJvbWFnZXxlbnwwfHwwfHx8MA%3D%3D" },
-  { id: "pizza-b-fermiere",   name: "Fermière",    category: "pizza-blanche", },
-  { id: "pizza-b-costa-cosa", name: "Costa Cosa",  category: "pizza-blanche" },
-  { id: "pizza-b-fuel",       name: "Fuel",        category: "pizza-blanche" },
+  // ============================================================
+  // SUPPLÉMENTS — 150 DA EACH
+  // ============================================================
+  ...[
+    "Champignon",
+    "Viande hachée",
+    "Sauce gruyère",
+    "Gruyère",
+    "Camembert",
+    "Fromage fumé",
+    "Gouda",
+    "Boursin",
+    "Jambon de dinde",
+    "Poulet pané",
+    "Cordon bleu",
+  ].map((label, index): MenuItem => ({
+    id: `supplement-${index + 1}`,
+    name: label,
+    price: 150,
+    category: "supplements",
+  })),
 
-
-  // ═══════════════════════════════════════════════════
-  // Poutine
-  // All ingredients NOT PROVIDED — à renseigner par le responsable
-  // ═══════════════════════════════════════════════════
-
-  { id: "poutine-respect",  name: "Poutine Respect",  category: "poutine"},
-  { id: "poutine-mixte",   name: "Poutine Mixte",    category: "poutine", },
-  { id: "poutine-vh", name: "Poutine Viande Haché",  category: "poutine" },
-
-  // ═══════════════════════════════════════════════════
-  // Crousty
-  // All ingredients NOT PROVIDED — à renseigner par le responsable
-  // ═══════════════════════════════════════════════════
-    { id: "crousty-spicy",  name: "Crousty Spicy",  category: "crousty", ingredients: ["Riz blanc", "Sauce Blanche","Poulet Crousty", "Sauce Piquant","Oignons","Frites" , " Persil"],},
-    { id: "crousty-spicy-2",  name: "Crousty Spicy 2 ",  category: "crousty", ingredients: ["Riz blanc", "Sauce blanche","Poulet Crousty", "Sauce Sucré","Oignons","Frites" , " Persil"],},
-
-  // ═══════════════════════════════════════════════════
-  // SALADES
-  // All ingredients NOT PROVIDED — à renseigner par le responsable
-  // ═══════════════════════════════════════════════════
-
-  { id: "salade-fromage", name: "Salade Fromage", category: "salades" },
-  { id: "salade-thon",    name: "Salade Thon",    category: "salades" },
-  { id: "salade-poulet",  name: "Salade Poulet",  category: "salades" },
-
-  // ═══════════════════════════════════════════════════
-  // SAUCES — Liste et prix à fournir par le responsable
-  // ═══════════════════════════════════════════════════
-  // Ajouter les sauces ici une fois confirmées.
-  // Exemple :
-  // { id: "sauce-xx", name: "Sauce Harissa", price: 50, category: "sauces" },
-
-  // ═══════════════════════════════════════════════════
-  // SUPPLÉMENTS — Liste et prix à fournir par le responsable
-  // ═══════════════════════════════════════════════════
-  // Ajouter les suppléments ici une fois confirmés.
-  // Exemple :
-  // { id: "sup-xx", name: "Supplément Fromage", price: 60, category: "supplements" },
+  // ============================================================
+  // SALADES — 300 DA EACH
+  // ============================================================
+  {
+    id: "salade-fromage",
+    name: "Salade Fromage",
+    price: 300,
+    category: "salades",
+    image:"/images/salade-fromage.jpg"
+  },
+  {
+    id: "salade-thon",
+    name: "Salade Thon",
+    price: 300,
+    category: "salades",
+    image:"/images/salade-thon.jpg"
+  },
+  {
+    id: "salade-poulet",
+    name: "Salade Poulet",
+    price: 300,
+    category: "salades",
+    image:"/images/salade-poulet.jpg"
+  },
 ];
