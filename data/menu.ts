@@ -290,6 +290,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 650,
     ingredients: ["Frites", "Fromage en grains", "Poulet crousty", "Viande hachée", "Sauce gruyère"],
     category: "poutine",
+    image:"/images/poutine-mix.jpg"
   },
   {
     id: "poutine-vh",
@@ -297,6 +298,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 600,
     ingredients: ["Frites", "Fromage en grains", "Viande hachée", "Sauce gruyère"],
     category: "poutine",
+    image:"/images/poutine-vh.jpg"
   },
   {
     id: "poutine-crispy",
@@ -304,6 +306,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 600,
     ingredients: ["Frites", "Fromage en grains", "Poulet crousty", "Sauce gruyère"],
     category: "poutine",
+    image:"/images/poutine-crispy.jpg"
   },
 
   // ============================================================
@@ -323,6 +326,7 @@ export const MENU_ITEMS: MenuItem[] = [
       "Persil",
     ],
     category: "crousty",
+    image:"/images/crousty-spicy.jpg"
   },
   {
     id: "crousty-spicy-2",
@@ -338,6 +342,7 @@ export const MENU_ITEMS: MenuItem[] = [
       "Persil",
     ],
     category: "crousty",
+    image:"/images/crousty-2-spicy.jpg"
   },
 
   // ============================================================
