@@ -125,7 +125,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: "esc-boursin",
     name: "Boursin Escalope",
-    price: 500,
+    price: 600,
     ingredients: ["Sauce Boursin", "Escalope", "Cheddar"],
     category: "sandwichs-escalope",
     image:"/images/boursin-escalope.jpg"
